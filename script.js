@@ -3,9 +3,10 @@
 //     smooth: true
 // });
 // only when locomotive is used alone and not with scroll trigger
+ gsap.registerPlugin(ScrollTrigger);
+
 
 function init(){
-    gsap.registerPlugin(ScrollTrigger);
 
 
 const locoScroll = new LocomotiveScroll({
@@ -50,3 +51,17 @@ tl.to(".page1 video",{
     width:"90%"
 
 },"anim")
+var tl2 = gsap.timeline({
+    scrollTrigger:{
+         trigger:".page1 h1",
+         scroller:"#main",
+         markers:false,
+         start:"top -116%",
+         end:"top 130",
+         scrub:3
+    }
+})
+
+tl.to('#main',{
+    backgroundColor:"#fff"
+})
